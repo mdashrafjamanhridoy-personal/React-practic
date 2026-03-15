@@ -1,4 +1,6 @@
 import BioData from "./components/BioData"
+import CounterApp from "./components/CounterApp"
+import TodoApp from "./components/TodoApp"
 
 const biodataInfo = [
   {
@@ -27,8 +29,13 @@ function App() {
         address={biodata.address}
       />
   ))};
+
+  <CounterApp />
+  <TodoApp />
   </>
   )
 }
 
 export default App
+
+
