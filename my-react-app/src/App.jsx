@@ -1,6 +1,7 @@
 import BioData from "./components/BioData"
 import CounterApp from "./components/CounterApp"
 import TodoApp from "./components/TodoApp"
+import TodoContextProvider from "./context/TodoContext"
 
 const biodataInfo = [
   {
@@ -17,25 +18,26 @@ const biodataInfo = [
   }
 ]
 
-
 function App() {
   return (
     <>
-  {biodataInfo.map((biodata) => (
-      <BioData 
-        name={biodata.name}
-        phone={biodata.phone}
-        skills={biodata.skills}
-        address={biodata.address}
-      />
-  ))};
+      {biodataInfo.map((biodata, index) => (
+        <BioData 
+          key={index}
+          name={biodata.name}
+          phone={biodata.phone}
+          skills={biodata.skills}
+          address={biodata.address}
+        />
+      ))}
 
-  <CounterApp />
-  <TodoApp />
-  </>
+      <CounterApp />
+
+      <TodoContextProvider>
+        <TodoApp />
+      </TodoContextProvider>
+    </>
   )
 }
 
-export default App
-
-
+export default App;
